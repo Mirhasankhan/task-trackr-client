@@ -1,13 +1,13 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { FaUserAlt, FaBookmark, FaFilePdf, FaQuestionCircle, FaSlidersH } from 'react-icons/fa';
+import { FaUserAlt, FaBookmark, FaFilePdf, FaQuestionCircle, FaSlidersH, FaBars, FaTimes } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const [detail, setDetail] = useState(false)
-    // const [smDevice, setSmDevice] = useState(false)
+    const [smDevice, setSmDevice] = useState(false)
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -23,19 +23,37 @@ const Navbar = () => {
         <div className='relative'>
             <div>
                 <div className="navbar md:px-12">
-                    <div className="flex-1">                      
+                    <div className="flex-1">
                         <Link to="/"><h1 className='font-semibold text-2xl'>Task<span className='text-sky-400'>Trackr</span></h1></Link>
                     </div>
-                    <div className="flex-none">
+                    <div className="md:flex hidden">
                         <ul className="menu menu-horizontal px-1 items-center font-semibold gap-5 text-xl text-sky-500">
                             <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/">Home</NavLink>
                             <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/myTask">My Task</NavLink>
                             <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/addTask">Add Task</NavLink>
-                           
+
                             {
                                 user?.email ? <FaUserAlt onClick={() => setDetail(!detail)} className='text-black cursor-pointer' /> : <NavLink to="/login"><button className='main-button'>Login</button></NavLink>
                             }
                         </ul>
+                    </div>
+                    <div className='md:hidden relative'>
+                        {
+                            smDevice ? <FaTimes className='text-xl' onClick={()=>setSmDevice(!smDevice)}/> : <FaBars className='text-xl' onClick={()=>setSmDevice(!smDevice)}/>
+                        }
+                        {
+                            smDevice && <div className="flex-none">
+                                <ul className="menu absolute top-5 right-0   font-semibold py-2 px-4 text-sky-500 bg-purple-200 rounded-md">
+                                    <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/">Home</NavLink>
+                                    <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/myTask">MyTask </NavLink>
+                                    <NavLink className={({ isActive }) => (isActive ? "text-[#261a3d]" : "")} to="/addTask">AddTask </NavLink>
+
+                                    {
+                                        user?.email ? <FaUserAlt onClick={() => setDetail(!detail)} className='text-black cursor-pointer' /> : <NavLink to="/login"><button className='main-button'>Login</button></NavLink>
+                                    }
+                                </ul>
+                            </div>
+                        }
                     </div>
                 </div>
                 {
