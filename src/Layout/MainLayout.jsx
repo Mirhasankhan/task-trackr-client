@@ -4,6 +4,7 @@ import loadings from '../assets/loadings.json'
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import Lottie from "lottie-react";
+import Footer from "../Pages/Shared/Footer";
 
 const MainLayout = () => {
     const { loading } = useContext(AuthContext)
@@ -13,7 +14,7 @@ const MainLayout = () => {
             <div className='min-h-[calc(100vh-100px)]'>
                 <Outlet />
             </div>
-            footer
+            <Footer/>
         </div>
     );
 };

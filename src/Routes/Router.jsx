@@ -6,11 +6,13 @@ import SignUp from "../Pages/SignUP/SignUp";
 import AddTask from "../Pages/AddTask/AddTask";
 import MyTask from "../Pages/MyTask/MyTask";
 import PrivateRoute from "./PrivateRoute";
+import WrongURL from "./WrongURL";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout/>,
+        errorElement: <WrongURL/>,
         children: [
             {
                 path: '/',
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addTask',
-                element: <AddTask/>
+                element: <PrivateRoute><AddTask/></PrivateRoute>
             },
             {
                 path: '/myTask',

@@ -11,8 +11,6 @@ const Login = () => {
     const location = useLocation()
     const from = location?.state?.from?.pathname || '/'
 
-
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -80,7 +78,7 @@ const Login = () => {
     return (
         <div>
             <h1 className="text-center text-3xl font-semibold py-6">SignIn To Task<span className="text-sky-500">Trackr</span></h1>
-            <div className="md:w-1/3 md:mx-auto mx-3">
+            <div className="md:w-1/3 md:mx-auto mx-3 mb-4">
                 <div className="border border-gray-500 rounded-md p-5">
                     <button onClick={handleGoogleSignIn} className="btn text-white btn-warning w-full">Sign IN With Google</button>
                     <h1 className="divider">Or</h1>

@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 
 const MyTask = () => {
     const { user } = useContext(AuthContext)
-    const url = `http://localhost:5000/tasks?email=${user?.email}`
+    const url = `https://task-trackr-server.vercel.app/tasks?email=${user?.email}`
 
     const { data: allInstructors = [], refetch } = useQuery({
         queryKey: ['tasks'],
@@ -17,7 +17,7 @@ const MyTask = () => {
 
     })
     const handleCompleted = (id) => {
-        fetch(`http://localhost:5000/tasks/${id}`, {
+        fetch(`https://task-trackr-server.vercel.app/tasks/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const MyTask = () => {
     }
 
     const handleDelete = (id)=>{
-        fetch(`http://localhost:5000/tasks/${id}`, {
+        fetch(`https://task-trackr-server.vercel.app/tasks/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -50,7 +50,7 @@ const MyTask = () => {
 
     return (
         <div>
-            <h1 className="text-2xl md:text-5xl font-bold text-center my-8">My Tasks</h1>
+            <h1 className="task animate__animated animate__backInRight ">My Tasks</h1>
             {
                 allInstructors.length > 0 ? <div className="mx-2 md:mx-6">
                     <div className="overflow-x-auto">
