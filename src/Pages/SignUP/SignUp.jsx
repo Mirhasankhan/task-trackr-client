@@ -49,8 +49,8 @@ const SignUp = () => {
 
     return (
         <div>
-            <h1 className="text-center text-3xl font-semibold py-6">Create An Account To Task<span className="text-sky-500">Trackr</span></h1>
-            <div className="grid md:grid-cols-2 gap-3 mt-4">
+            <h1 className="text-center text-xl md:text-3xl font-semibold py-6">Create An Account To Task<span className="text-sky-500">Trackr</span></h1>
+            <div className="grid md:grid-cols-2 gap-3 my-4 mx-2 md:mx-6">
                 <div>
                     <Lottie animationData={signUpFile} loop={true} />;
                 </div>

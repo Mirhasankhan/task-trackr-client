@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import TaskRow from "./TaskRow";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const MyTask = () => {
     const { user } = useContext(AuthContext)
@@ -50,6 +51,9 @@ const MyTask = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>TaskTrackr | My Task</title>
+            </Helmet>
             <h1 className="task animate__animated animate__backInRight ">My Tasks</h1>
             {
                 allInstructors.length > 0 ? <div className="mx-2 md:mx-6">

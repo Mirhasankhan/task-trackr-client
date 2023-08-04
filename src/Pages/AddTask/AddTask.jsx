@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import Lottie from "lottie-react";
 import taskImage from '../../assets/taskImage.json'
 import 'animate.css';
+import { Helmet } from "react-helmet-async";
 
 const AddTask = () => {
     const { user } = useContext(AuthContext)
@@ -42,7 +43,10 @@ const AddTask = () => {
 
     }
     return (
-        <div>
+        <div className="mb-6">
+            <Helmet>
+                <title>TaskTrackr | Add Task</title>
+            </Helmet>
             <h1 className="animate__animated animate__backInRight task">Add Your Task</h1>
             <div className="md:mx-6 mx-2 mt-3 grid md:grid-cols-2">
                 <form onSubmit={handleSubmit} className="card-body shadow-xl rounded-md">
@@ -86,7 +90,7 @@ const AddTask = () => {
                     <input className="main-button mt-3" type="submit" value="Add Task" />
                 </form>
                 <div>
-                    <Lottie className="h-[500px] md:w-[600px] w-350px" animationData={taskImage} loop={true} />
+                    <Lottie className="h-[420px] md:w-[600px] w-350px" animationData={taskImage} loop={true} />
                 </div>
             </div>
         </div>

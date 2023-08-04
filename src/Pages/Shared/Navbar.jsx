@@ -22,7 +22,7 @@ const Navbar = () => {
     return (
         <div className='relative'>
             <div>
-                <div className="navbar border-b md:px-12">
+                <div className="navbar md:px-12">
                     <div className="flex-1">                      
                         <Link to="/"><h1 className='font-semibold text-2xl'>Task<span className='text-sky-400'>Trackr</span></h1></Link>
                     </div>
